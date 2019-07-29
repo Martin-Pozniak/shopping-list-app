@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Recipe} from '../recipe.model';
+import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 
 @Component({
   selector: 'app-recipe-list',
@@ -20,9 +21,16 @@ export class RecipeListComponent implements OnInit {
       'https://amazingribs.com/files/styles/content_body_600px/public/articles/hero/beef-and-bison-recipes/italian-beef.jpg?itok=sMFKOMku'),
   ];
 
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRecipeSelected(recipe: Recipe) {
+    console.log(recipe);
+    this.recipeWasSelected.emit(recipe);
   }
 
 }

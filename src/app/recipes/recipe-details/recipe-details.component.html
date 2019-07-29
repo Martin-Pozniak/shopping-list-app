@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive">
+    <img src="{{selectedRecipe.imagePath}}" alt="{{selectedRecipe.name}}" class="img-responsive" style="max-height:300px">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>Name</h1>
+    <h1>{{selectedRecipe.name}}</h1>
   </div>
 </div>
 <div class="row">
@@ -21,12 +21,20 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    Description
+  <div *ngIf="selectedRecipe != null" class="col-xs-12">
+    Description: {{selectedRecipe.description}}
+  </div>
+  <div *ngIf="selectedRecipe == null" class="col-xs-12">
+      Description: No Recipe Selected.
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Ingredients
+    <div *ngIf="selectedRecipe != null" class="col-xs-12">
+        Ingredients:
+      </div>
+      <div *ngIf="selectedRecipe == null" class="col-xs-12">
+        Ingredients: No Recipe Selected.
+      </div>
   </div>
 </div>
