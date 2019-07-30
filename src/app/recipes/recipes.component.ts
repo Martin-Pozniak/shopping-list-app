@@ -13,6 +13,7 @@ export class RecipesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   recipeChanged(recipe: Recipe) {
