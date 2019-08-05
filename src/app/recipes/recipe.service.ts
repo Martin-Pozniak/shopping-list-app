@@ -14,8 +14,8 @@ export class RecipeService {
       'It\'s a pizza',
       'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/dc23cd051d2249a5903d25faf8eeee4c/BFV36537_CC2017_2IngredintDough4Ways-FB.jpg',
       [
-        new Ingredient("Shredded Cheese", 2),
-        new Ingredient("Tomato Sauce", 1)
+        new Ingredient('Shredded Cheese', 2),
+        new Ingredient('Tomato Sauce', 1)
       ]
     ),
     new Recipe(
@@ -23,8 +23,8 @@ export class RecipeService {
       'It\'s a Portillos Italian Beef Sub',
       'https://amazingribs.com/files/styles/content_body_600px/public/articles/hero/beef-and-bison-recipes/italian-beef.jpg?itok=sMFKOMku',
       [
-        new Ingredient("Beef", 3),
-        new Ingredient("Bread", 1)
+        new Ingredient('Beef', 3),
+        new Ingredient('Bread', 1)
       ]
     ),
   ];
@@ -36,9 +36,13 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  addIngredientsToShoppingList(ingredients:Ingredient[]) {
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
-    console.log("Adding in recipe service");
+    console.log('Adding in recipe service');
+  }
+
+  getRecipe(id: number) {
+    return this.recipes.slice()[id];
   }
 
 }
