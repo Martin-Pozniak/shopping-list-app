@@ -10,15 +10,17 @@ export class ShoppingListService {
     new Ingredient('Tomatos', 3)
   ];
 
-  newIngredientAdded: EventEmitter<Ingredient> = new EventEmitter();
+  // newIngredientAdded = new EventEmitter<Ingredient>();
+  ingredientsChanged = new EventEmitter<Ingredient[]>();
 
   getIngredients() {
     return this.ingredients.slice();
   }
 
-  onAddItem(ingName, ingAmount) {
+  addIngredient(ingName, ingAmount) {
     const newIngredient: Ingredient = new Ingredient(ingName, ingAmount);
     this.ingredients.push(newIngredient);
+    this.ingredientsChanged.emit(this.ingredients.slice());
   }
 
   onDeleteItem() {

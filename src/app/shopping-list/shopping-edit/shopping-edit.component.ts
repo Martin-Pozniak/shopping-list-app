@@ -5,7 +5,7 @@ import { ShoppingListService } from '../shopping-list.service';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.css']
+  styleUrls: ['./shopping-edit.component.css'],
 })
 export class ShoppingEditComponent implements OnInit {
 
@@ -18,11 +18,17 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onAddItem() {
+
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
-    const newIngredient = new Ingredient(ingName, ingAmount);
-    this.shoppingListService.onAddItem(ingName, ingAmount);
-    this.shoppingListService.newIngredientAdded.emit(newIngredient);
+
+    // const newIngredient = new Ingredient(ingName, ingAmount);
+    this.shoppingListService.addIngredient(ingName, ingAmount);
+
+    // this.shoppingListService.newIngredientAdded.emit(newIngredient);
+
+    console.log("Emitted new Item");
+
   }
 
   onDeleteItem() {

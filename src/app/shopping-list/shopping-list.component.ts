@@ -5,8 +5,7 @@ import { ShoppingListService } from './shopping-list.service';
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css'],
-  providers: [ShoppingListService]
+  styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
 
@@ -15,14 +14,16 @@ export class ShoppingListComponent implements OnInit {
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
-    this.ingredients = this.shoppingListService.getIngredients();
-  }
 
-  onIngredientAdded(newIng: Ingredient) { //fix
-    this.shoppingListService.newIngredientAdded.subscribe(
-      (newIngredient: Ingredient) => {
-      this.ingredients.push(newIngredient);
+    this.ingredients = this.shoppingListService.getIngredients();
+
+    this.shoppingListService.ingredientsChanged.subscribe(
+      (newIngredients: Ingredient[]) => {
+      this.ingredients = newIngredients;
+      console.log(this.ingredients);
+      console.log(this.shoppingListService.getIngredients());
     });
+
   }
 
 }
