@@ -10,7 +10,6 @@ export class ShoppingListService {
     new Ingredient('Tomatos', 3)
   ];
 
-  // newIngredientAdded = new EventEmitter<Ingredient>();
   ingredientsChanged = new EventEmitter<Ingredient[]>();
 
   getIngredients() {
@@ -21,6 +20,13 @@ export class ShoppingListService {
     const newIngredient: Ingredient = new Ingredient(ingName, ingAmount);
     this.ingredients.push(newIngredient);
     this.ingredientsChanged.emit(this.ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // Could also use this.ingredients.push(...ingredients); //its called the spread operator
+    this.ingredients = this.ingredients.concat(ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+    console.log('Added in shopping list');
   }
 
   onDeleteItem() {

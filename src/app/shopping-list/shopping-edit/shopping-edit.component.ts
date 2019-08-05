@@ -22,12 +22,7 @@ export class ShoppingEditComponent implements OnInit {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
 
-    // const newIngredient = new Ingredient(ingName, ingAmount);
     this.shoppingListService.addIngredient(ingName, ingAmount);
-
-    // this.shoppingListService.newIngredientAdded.emit(newIngredient);
-
-    console.log("Emitted new Item");
 
   }
 
