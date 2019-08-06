@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'ng-course-proj';
   loadedFeature = 'recipes';
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
-
 }
