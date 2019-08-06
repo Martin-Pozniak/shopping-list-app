@@ -14,12 +14,15 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
   {path: 'recipes', component: RecipesComponent, children: [
     {path: '', component: RecipeStartComponent}, // /recipes/
-    {path: ':id', component: RecipeDetailsComponent} // /recipes/1,2,3
+    {path: 'new', component: RecipeEditComponent},
+    {path: ':id', component: RecipeDetailsComponent}, // /recipes/1,2,3
+    {path: ':id/edit', component: RecipeEditComponent}
   ]},
   {path: 'shopping', component: ShoppingListComponent},
 ];
@@ -35,7 +38,8 @@ const appRoutes: Routes = [
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

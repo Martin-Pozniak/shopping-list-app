@@ -1,1 +1,8 @@
-<h3 style="text-align: center">Please Select a Recipe!</h3>
+<h3 style="text-align: center; margin-top:50px;">Please Select a Recipe!</h3>
+<h3 style="text-align: center; margin-top:50px;">Or create a new one!</h3>
+
+<div class="row">
+  <div class="col-xs-12">
+    <button [routerLink]="['/recipes/new']" routerLinkActive="router-link-active"  class="btn btn-success">New Recipe</button>
+  </div>
+</div>
